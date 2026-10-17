@@ -1,6 +1,9 @@
 
+import os
+
 from flask import Flask
 
+port = int(os.environ.get("PORT", 10000))  # noqa: PLW1508
 app = Flask(__name__)
 
 @app.route("/")
