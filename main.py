@@ -1,9 +1,7 @@
 
+from flask import Flask
 import os
 
-from flask import Flask
-
-port = int(os.environ.get("PORT", 10000))  # noqa: PLW1508
 app = Flask(__name__)
 
 @app.route("/")
@@ -13,14 +11,17 @@ def home():
     <html lang="it">
     <head>
         <meta charset="UTF-8">
-        <title>La mia prima pagina web</title>
+        <title>Il mio sito</title>
     </head>
     <body>
         <h1>Ciao, mondo!</h1>
-        <p>Questa pagina è servita da Python.</p>
+        <p>Il mio sito Python funziona!</p>
     </body>
     </html>
     """
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", 5000))
+    )
